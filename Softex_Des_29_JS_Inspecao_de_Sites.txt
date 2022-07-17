@@ -1,0 +1,24 @@
+Acesse pelo menos dois sites de sua preferência e os inspecione com o botão direito do mouse na página web.
+Com o código fonte aberto você deve: 
+
+Verificar no código algum elemento que utilize JavaScript; 
+Marcar alguns elementos do site; 
+Explicar como ele se comporta. Exemplo: entrar no site do Google, inspecionar o botão de pesquisa, 
+Verificar o código e explicar qual a finalidade do botão. 
+
+(1) Site da Google - Botão de Pesquisa - 
+<body>
+    <iframe id="backgroundImage" src=""></iframe>
+    <ntp-app></ntp-app>
+    <script type="module" src="new_tab_page.js"></script>
+    <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
+    <link rel="stylesheet" href="shared_vars.css">
+  </body>
+</html>
+
+Primeiro de tudo, precisamos incluir type="module" no <script> elemento do HTML, para declarar esse script 
+como um módulo e para importar o new_tab_page.js script, usamos este:
+ <script type="module" src="new_tab_page.js"></script>
+
+A finalidade do Botão é abrir uma nova guia em javascript.
+
