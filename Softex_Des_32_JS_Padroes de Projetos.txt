@@ -1,0 +1,150 @@
+Pesquise sobre padrões de projeto e escolha um para apresentar e descrever o seu funcionamento. 
+Além disso, explique quais as vantagens e desvantagens comparados a outros e mostre suas referências.
+
+PADRÕES DE PROJETOS: 
+Padrões de projetos podem ser informalmente considerados como aplicação de boas práticas e/ou reuso 
+de repertório de soluções.
+Os componentes de um padrão de projeto são :
+1- Nome - descreve a essência do padrão
+2- Objetivo - descreve como o padrão atua.
+3- Problema - descreve o problema
+4- Solução - descreve a solução
+5- Conseqüências - descreve os benefícios da utilização do padrão.
+
+Os tipos estão divididos por afinidade. A seguir estão definindo os principais tipos de padrões de projetos:
+
+1- Padrões de Criação (Creational)
+     Abstract Factory - Um método Factory é um método que fabrica objetos de um tipo particular; Um objeto Factory é um objeto que encapsula  métodos Factory.
+     Builder - Separa a construção de um objeto complexo da sua representação, de forma que o mesmo processo de construção possa criar diferentes representações.
+     Factory Method - É uma interface para instanciação de objetos que mantém isoladas as classes concretas usadas da requisição da criação destes objetos.
+     Prototype - O padrão Prototype fornece uma outra maneira de se construir objetos de tipos arbitrários.
+     Singleton. - Garante que para uma classe específica só possa existir uma única instância, a qual é acessível de forma global e uniforme.
+2- Padrões de Estrutura (Structural)
+     Adapter - Permite que dois objetos se comuniquem mesmo que tenham interfaces incompatíveis.
+     Bridge - Desacopla a interface da implementação ; Ocultação de detalhes de implementação dos clientes.
+     Composite - lida com uma estrutura de elementos agrupada hierarquicamente (não como meras coleções).
+     Decorator - Atribui responsabilidade adicionais a um objeto dinamicamente. O Decorator fornece uma alternativa flexível a subclasses para a extensão da 
+		funcionalidade.
+     Facade - Interface unificada para um subsistema ; Torna o subsistema mais fácil de usar.
+     Flyweight - Usa compartilhamento para dar suporte a vários objetos de forma eficiente.
+     Proxy - Fornece um objeto representante ou procurador de outro objeto para controlar o acesso ao mesmo.
+3- Padrões de Comportamento (Behavioral)
+    Chain of Responsability - Evita dependência do remetente(cliente) de uma requisição ao seu destinatário , dando a oportunidade de mais de objeto tratar 
+			      a requisição.
+    Command - Associa uma ação a diferentes objetos através de uma interface conhecida.
+    Interpreter - Usado para ajudar uma aplicação a entender uma declaração de linguagem natural e executar a funcionalidade da declaração.
+    Iterator - Provê uma forma de percorrermos os elementos de uma coleção sem violar o seu encapsulamento.
+    Mediator - Cria um objeto que age como um  mediador controlando a interação entre um conjunto de objetos.
+    Memento - Torna possível salvar o estado de um objeto de modo que o mesmo possa ser restaurado.
+    Observer - Define uma relação de dependência 1:N de forma que quando um certo objeto (assunto) tem seu estado modificado os demais (observadores) são 
+	       notificados; Possibilita baixo acoplamento entre os objetos observadores e o assunto.
+    State - Permite objeto alterar seu comportamento quando estado interno muda.
+    Strategy - Permite que uma família de algoritmos seja utilizada de modo independente e seletivo.
+    Template Method -Define o esqueleto de um algoritmo em uma operação adiando a definição de alguns passos para a subclasse.
+    Visitor - Define operações independentes a serem realizadas sobre elementos de uma estrutura.
+
+(1) Prototype - O padrão Prototype fornece uma outra maneira de se construir objetos de tipos arbitrários:
+
+(1.1) Intenção: Especificar os tipos de objetos a serem criados usando uma instância-protótipo e criar novos objetos pela cópia desse protótipo
+
+(1.2) Aplicabiidade: Use o padrão Prototype quando um sistema tiver que ser independente de como os seus produtos são criados, compostos e representados;
+
+(1.3) Vantegens : 
+1. Acrescenta e remove produtos em tempo de execução. Prototype permite incorporar uma nova classe concreta de produto a um sistema, simplesmente
+   registrando uma instância protótipo com o cliente. Isso é um pouco mais flexível do que outros padrões de criação, porque o cliente pode instalar e
+   remover protótipos em tempo de execução.
+2. Especifica novos objetos pela variação de valores. Sistemas altamente dinâmicos permitem definir novos comportamentos através da composição de objetos
+   – por exemplo, pela especificação de valores para as variáveis de um objeto
+    – e não pela definição de novas classes.
+   Você efetivamente define novos tipos de objetos pela instanciação das classes existentes e registrando as instâncias como protótipos dos objetos-clientes.
+   Um cliente pode exibir um novo comportamento através da delegação de responsabilidades para o protótipo.
+   Esse tipo de projeto permite aos usuários definir novas “classes” sem ter que programar. De fato, clonar um protótipo é semelhante a instanciar uma classe.
+   O padrão Prototype pode reduzir grandemente o número de classes que um sistema necessita. No nosso editor musical, uma classe GraphicTool pode criar
+   uma variedade ilimitada de objetos musicais.
+3. Especifica novos objetos pela variação da estrutura. Muitas aplicações constróem objetos com partes e subpartes. Por exemplo, editores para o projeto de
+   circuitos que constroem circuitos a partir de subcircuitos.1 Por questões de conveniência, tais aplicações freqüentemente permitem instanciar estruturas
+   complexas, definidas pelo usuário, para, por exemplo, usar um subcircuito específico repetidas vezes.
+   O padrão Prototype também suporta isso. Simplesmente adicionamos esse subcircuito como um protótipo à paleta dos elementos de circuitos disponíveis.
+   Contanto que o objeto-circuito composto implemente um clone por replicação (deep copy), circuitos com diferentes estruturas podem ser protótipos.
+4. Reduz o número de subclasses. O Factory Method (112) freqüentemente produz uma hierarquia de classes Creator paralela à hierarquia de classes do
+   produto. O padrão Prototype permite clonar um protótipo em vez de pedir a um método fábrica para construir um novo objeto. Daí não necessitar-se de
+   nenhuma hierarquia de classes Creator. Esse benefício se aplica primariamente a linguagens como C++, que não tratam as classes como objetos de primeira
+   classe. As linguagens que assim o fazem, como Smalltalk e Objective C, obtêm menos benefícios, uma vez que sempre se usa um objeto-classe como um
+   criador. Objetos-classe já funcionam como protótipos nessas linguagens.
+5. Configura dinamicamente uma aplicação com classes. Alguns ambientes de tempo de execução permitem carregar classes dinamicamente numa aplicação. O
+   padrão Prototype é a chave para a exploração de tais possibilidades numa linguagem como C++.
+   Uma aplicação que quer criar instâncias de uma classe dinamicamente carregada não será capaz de referenciar o seu constructor estaticamente. Em 
+   vez disso, o ambiente de tempo de execução cria uma instância de cada classe automaticamente, quando carregada, e registra a instância junto a um
+   gerenciador de protótipo (ver a seção Implementação). Então, a aplicação pode solicitar ao gerenciador de protótipos instâncias de classes recémcarregadas,
+   classes essas que originalmente não estavam “linkadas” ao programa. O framework de aplicações da ET++ [WGM88] tem um sistema de
+   tempo de execução que usa este esquema.
+
+(1.4) Desvantagens : O principal ponto fraco do padrão Prototype é que cada subclasse de Prototype deve implementar a operação Clone, o que pode ser difícil. Por exemplo, 
+      acrescentar Clone é difícil quando as classes consideradas já existem. A implementação de Clone pode ser complicada quando uma estrutura interna dessas 
+      classes inclui objetos que não suportam operação de cópia ou têm referências circulares
+
+
+
+(2) Singleton - Garante que para uma classe específica só possa existir uma única instância, a qual é acessível de forma global e uniforme.
+
+(2.1) Intenção: Garantir que uma classe tenha somente uma instância e fornecer um ponto global de acesso para a mesma.
+
+(2.2) Aplicabiidade: Use o padrão Singleton quando:
+	• for preciso haver apenas uma instância de uma classe, e essa instância tiver que dar acesso aos clientes através de um ponto bem conhecido;
+	• a única instância tiver de ser extensível através de subclasses, possibilitando aos clientes usar uma instância estendida sem alterar o seu código.
+
+(2.3) Vantegens: O padrão Singleton apresenta vários benefícios:
+1. Acesso controlado à instância única: Como a classe Singleton encapsula a sua única instância, possui controle total sobre como e quando os clientes a
+   acessam.
+2. Espaço de nomes reduzido: O padrão Singleton representa uma melhoria em relação ao uso de variáveis globais. Ele evita a poluição do espaço de nomes
+   com variáveis globais que armazenam instâncias únicas.
+3. Permite um refinamento de operações e da representação: A classe Singleton pode ter subclasses e é fácil configurar uma aplicação com uma instância dessa
+   classe estendida. Você pode configurar a aplicação com uma instância da classe de que necessita em tempo de execução.
+4. Permite um número variável de instâncias: O padrão torna fácil mudar de idéia, permitindo mais de uma instância da classe Singleton. Além disso, você pode
+   usar a mesma abordagem para controlar o número de instâncias que a aplicação utiliza. Somente a operação que permite acesso à instância de
+   Singleton necessita ser mudada.
+5. Mais flexível do que operações de classe: Uma outra maneira de empacotar a funcionalidade de um singleton é usando operações de classe (ou seja,
+   funções-membro estáticas em C++ ou métodos de classe em Smalltalk).
+   Porém, as técnicas de ambas as linguagens tornam difícil mudar um projeto para permitir mais que uma instância de uma classe. Além disso, as funçõesmembro
+   estáticas em C++ nunca são virtuais, o que significa que as subclassesnão podem redefini-las polimorficamente.
+
+(2.4) Desvantagens: 
+
+(a) Não podemos garantir que somente uma instância de um objeto estático será declarada;
+(b) Talvez não tenhamos informação suficiente para instanciar cada singleton em tempo de inicialização estática. Um singleton pode necessitar de
+    valores que são computados mais tarde, durante a execução do programa;
+(c) A solução que usa o objeto estático ainda apresenta um problema potencial – todas as instâncias de todas as subclasses possíveis de
+    Singleton devem ser criadas, pois, caso contrário, não serão registradas.
+(d) Uma deficiência adicional (embora pequena) da abordagem objeto global/estático é que ela força a criação de todos singletons, quer sejam usados ou não.
+
+(3) Comparação com outros padrões:
+
+Existem duas maneiras comuns de parametrizar um sistema pelas classes de objetos que ele cria. 
+Uma é criar subclasses da classe que cria os objetos; isto corresponde a usar o padrão Factory Method. 
+A principal desvantagem desta solução é que requer a criação de uma nova subclasse somente para mudar a classe do produto. 
+Tais mudanças podem gerar uma cascata de modificações encadeadas. Por exemplo, quando o criador do produto é ele próprio, 
+criado por um método fábrica, então você tem que redefinir também o seu criador.
+A outra forma de parametrizar um sistema baseia-se mais na composição de objetos: 
+Defina um objeto que seja responsável por conhecer a classe dos objetos produto e torne-o um parâmetro do sistema. 
+Este é o aspecto-chave dos padrões Abstract Factory, Builder e Prototype. 
+Todos os três padrões envolvem a criação de um novo objeto-fábrica cuja responsabilidade é criar objetos-produtos. 
+Em Abstract Factory, o objeto-fábrica produz objetos de várias classes. 
+Em Builder, um objeto-fábrica constrói incrementalmente um objeto complexo usando um protocolo igualmente complexo. 
+O padrão Prototype faz o objeto-fábrica construir um objeto-produto copiando um objeto prototípico. 
+Neste caso, o objeto-fábrica e o protótipo são o mesmo objeto, porque o protótipo é responsável por retornar o produto.
+O padrão Factory Method é inicialmente mais fácil de usar.
+O padrão Abstract Factory seria preferível a Factory Method somente se já houvesse uma hierarquia de classes.
+O padrão Prototype no geral é o melhor para usar porque ele somente requer a implementação de uma operação Clone em cada classe.
+O Factory Method torna um projeto mais adaptável e apenas um pouco mais complicado. 
+Outros padrões de projeto requerem novas classes, enquanto que Factory Method somente exige uma nova operação. 
+As pessoas freqüentemente usam Factory Method como a maneira padrão de criar objetos, mas não é necessário quando a classe
+que é instanciada nunca muda ou quando a instanciação ocorre em uma operação que subclasses podem facilmente redefinir, tal como uma operação de inicialização.
+Projetos que usam Abstract Factory, Prototype ou Builder são ainda mais flexíveis do que aqueles que utilizam Factory Method, porém, 
+eles também são mais complexos.
+Freqüentemente, os projetos começam usando Factory Method e evoluem para outros padrões de criação à medida que o projetista descobre 
+onde é necessária maior flexibilidade. 
+
+Referencias: https://www.macoratti.net/vb_pd1.htm
+	     https://web.inf.ufpr.br/didonet/wp-content/uploads/sites/12/2021/03/Padroes-de-projeto.pdf
+	     Livro Padroes de Projetos Solucoes Reutilizaveis - Erich Gamma, Richar Helm, Ralph Johnson, John Vlissides - Edição de 2008
+
