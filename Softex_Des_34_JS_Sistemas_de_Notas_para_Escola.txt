@@ -1,0 +1,36 @@
+Crie dois códigos de sistema de notas para uma escola. 
+O primeiro código deve ser um programa que informa se o aluno reprovou, ou não, com base nas três notas que ele adicionou ao programa. 
+Utilize, no mínimo, um operador de atribuição e um operador ternário. 
+O segundo código é um programa que o aluno deve escrever duas notas e o retorno informa a nota mínima que ele deve tirar na próxima 
+prova para poder passar com nota sete.
+
+CÓDIGO 1:
+
+var nota1 = prompt("Digite a Primeira Nota: ");
+console.log(nota1);
+
+var nota2 = prompt("Digite a Segunda Nota: ");
+console.log(nota2);
+
+var nota3 = prompt("Digite a Terceira Nota: ");
+console.log(nota1);
+
+var media = ((nota1+nota2+nota3)/2);
+
+var resultado = (media>=7) ? "PASSOU" : "REPROVOU";
+
+
+
+CÓDIGO 2:
+
+var nota1 = prompt("Digite a Primeira Nota: ");
+console.log(nota1);
+
+var nota2 = prompt("Digite a Segunda Nota: ");
+console.log(nota2);
+
+somaduas = nota1+nota2;
+
+nota3 = 21-somaduas;
+
+console.log("Precisa tirar " + nota3 + " na " próxima prova para passar com Media 7."
